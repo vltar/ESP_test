@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<title>IOMOIO - Веб-интерфейсы: Урок 2</title>
+		<style>
+			body {
+				text-align: center;
+				height: 100%;
+				margin: 0;
+			}
+			input[type="button"] {
+				position: relative;
+				top: 50%;
+				margin-top: -30px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="Switch Relay (On/Off)" id="relay_button">
+		<script>
+			var relay = document.getElementById("relay_button");
+			function relay_inverse() {
+				var request = new XMLHttpRequest();
+				request.open('GET','/relay_switch',false);
+				request.send();
+			}
+			relay.addEventListener('click', relay_inverse);
+		</script>
+	</body>
+</html>
